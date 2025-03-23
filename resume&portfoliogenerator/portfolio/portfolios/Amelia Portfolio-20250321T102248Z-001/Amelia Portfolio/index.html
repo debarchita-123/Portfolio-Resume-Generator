@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <!-- Form to capture details -->
+    <div class="form-container" id="formContainer">
+        <h2>Enter Your Details</h2>
+        <form id="portfolioForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" required><br>
+
+            <label for="summary">Summary:</label>
+            <textarea id="summary" placeholder="Enter a short summary" required></textarea><br>
+
+            <label for="skills">Skills:</label>
+            <input type="text" id="skills" placeholder="Enter your skills (comma-separated)" required><br>
+
+            <label for="education">Education:</label>
+            <input type="text" id="education" placeholder="Enter your education details" required><br>
+
+            <label for="projects">Projects:</label>
+            <input type="text" id="projects" placeholder="Enter your project details" required><br>
+
+            <label for="github">GitHub Link:</label>
+            <input type="url" id="github" placeholder="Enter your GitHub link"><br>
+
+            <label for="facebook">Facebook Link:</label>
+            <input type="url" id="facebook" placeholder="Enter your Facebook link"><br>
+
+            <label for="linkedin">LinkedIn Link:</label>
+            <input type="url" id="linkedin" placeholder="Enter your LinkedIn link"><br>
+
+            <label for="twitter">Twitter Link:</label>
+            <input type="url" id="twitter" placeholder="Enter your Twitter link"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Main page content -->
+    <div class="main-container" id="mainContainer" style="display:none;">
+        <nav>
+            <div class="nav-container">
+                <div class="logo" data-aos="zoom-in" data-aos-duration="1000">
+                    <span id="displayName">Portfolio</span>
+                </div>
+                <div class="links">
+                    <div class="link" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100"><a href="#">Home</a></div>
+                    <div class="link dropdown" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                        <a href="#">About</a>
+                        <div class="dropdown-content">
+                            <a href="#">Summary: <span id="displaySummary">Web Developer</span></a>
+                        </div>
+                    </div>
+                    <div class="link dropdown" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                        <a href="#">Skills</a>
+                        <div class="dropdown-content" id="skillsDropdown">
+                            <a href="#">HTML</a>
+                        </div>
+                    </div>
+                    <div class="link dropdown" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                        <a href="#">Education</a>
+                        <div class="dropdown-content" id="educationDropdown">
+                            <a href="#">College</a>
+                        </div>
+                    </div>
+                    <div class="link dropdown" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+                        <a href="#">Projects</a>
+                        <div class="dropdown-content" id="projectsDropdown">
+                            <a href="#">Project 1</a>
+                        </div>
+                    </div>
+                    <div class="link contact-btn" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600"><a href="#">Contact Us</a></div>
+                </div>
+            </div>
+        </nav>
+
+        <section>
+            <div class="main-container">
+                <div class="image" data-aos="zoom-in-right" data-aos-duration="2500">
+                    <img src="main.png" alt="Profile Image">
+                </div>
+                <div class="content">
+                    <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">Hey, I'm <span id="mainName">Portfolio</span></h1>
+                    <div class="typewriter" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="900">I'm a <span id="mainSummary">Web Developer</span></div>
+                    <p data-aos="flip-up" data-aos-duration="1000" data-aos-delay="1000" id="mainAbout">
+                        Welcome to my portfolio. Here you will find information about my skills, education, and projects.
+                    </p>
+                    <div class="social-links" data-aos="flip-down" data-aos-duration="1000" data-aos-delay="1200">
+                        <a href="#" id="githubLink"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" id="facebookLink"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" id="linkedinLink"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" id="twitterLink"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                    <div class="btn" data-aos="zoom-out-left" data-aos-duration="1000" data-aos-delay="1300">
+                        <button>Download CV</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ offset: 0 });
+
+        document.getElementById('portfolioForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const summary = document.getElementById('summary').value;
+            const skills = document.getElementById('skills').value;
+            const education = document.getElementById('education').value;
+            const projects = document.getElementById('projects').value;
+            const githubLink = document.getElementById('github').value;
+            const facebookLink = document.getElementById('facebook').value;
+            const linkedinLink = document.getElementById('linkedin').value;
+            const twitterLink = document.getElementById('twitter').value;
+
+            // Update main content with form data
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('mainName').textContent = name;
+            document.getElementById('displaySummary').textContent = summary;
+            document.getElementById('mainSummary').textContent = summary;
+            
+            // Skills, Education, Projects update
+            document.getElementById('skillsDropdown').innerHTML = `<a href="#">${skills.split(',').join('</a><a href="#">')}</a>`;
+            document.getElementById('educationDropdown').innerHTML = `<a href="#">${education}</a>`;
+            document.getElementById('projectsDropdown').innerHTML = `<a href="#">${projects}</a>`;
+
+            // Social links update
+            document.getElementById('githubLink').href = githubLink;
+            document.getElementById('facebookLink').href = facebookLink;
+            document.getElementById('linkedinLink').href = linkedinLink;
+            document.getElementById('twitterLink').href = twitterLink;
+
+            // Hide form and show main content
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('mainContainer').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        /* Add smooth scrolling to the page */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="portfolio.png" class="logo" alt="Portfolio">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about-section">About</a></li>
+                <li><a href="#templates-section">Templates</a></li>
+                <li><a href="#contact-section">Contact us</a></li>
+            </ul>
+        </nav>
+        <!-- <div class="register">
+            <button>Register For Free</button>
+        </div> -->
+    </header>
+
+    <main>
+        <div id="particles-js">
+            
+        </div>
+
+        <div class="basic">
+            <section id="welcome-section" class="content">
+                <img src="images.jpeg" class="pic">
+                <h1>Hi, Welcome</h1>
+                <h2>This is your Portfolio & Resume Generator.</h2>
+                <p>Choose the one that fits you the best</p>
+            </section>
+        </div>
+    
+        <br>
+        <button class="btn1">About</button>
+        <!-- About Section -->
+        <section id="about-section " class="about-section hidden">
+            <h2>About This Portfolio & Resume Generator</h2>
+            <br>
+            <p>Hie, so this is a portfolio website where you can look at some of the Awesome portfolios that wee have in store for you. You can usse these portfolios for your proffesional use and put an impact on the viewer.</p>
+            <br>
+
+            <h3>Steps to Create Your Portfolio:</h3>
+            <br>
+            <ul>
+                <li><strong>Select a Template:</strong> Click on the "Templates" tab to browse through available portfolio templates.</li>
+                
+                <li><strong>Fill Out Information:</strong> Once you've selected a template, fill in your name, contact details, bio, and other relevant information.</li>
+                
+                <li><strong>Generate the Portfolio:</strong> After submitting the information, a personalized portfolio will be generated for you.</li>
+                
+                <li><strong>Download or Share:</strong> You can download the portfolio or share it online directly.</li>
+            </ul>
+        </section>
+
+        <section id="portfolio-section" class="portfolios-section">
+            <br>
+            <h2>Select a Portfolio Template</h2><br>
+            <div class="templates-grid">
+                <div class="template">
+                    <img src="template-portfolios/portfolio1.jpg" class="Portfolio1" alt="Template 1">
+                    <a href="portfolios/Alex Portfolio/index.html" target="_blank"><button>Portfolio 1</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-portfolios/portfolio2.jpg" alt="Template 2">
+                    <a href="portfolios/Amelia Portfolio-20250321T102248Z-001/Amelia Portfolio/index.html" target="_blank"><button>Portfolio 2</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-portfolios/portfolio3.jpg" alt="Template 3">
+                    <a href="portfolios/Complete_Portfolio_Website-main/Complete_Portfolio_Website-main/index.html" target="_blank"><button>Portfolio 4</button></a>
+                </div>
+            </div>
+
+        </section>        
+
+        <section id="templates-section" class="template-section">
+            <h2>Select a Resume Template</h2><br>
+            <div class="templates-grid">
+                <div class="template">
+                    <img src="template-imgs/angeli.png" class="template1" alt="Template 1">
+                    <a href="template-docx/template1.docx" target="_blank"><button>Open Template 1 PDF</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-imgs/template2.png" alt="Template 2">
+                    <a href="template-docx/template2.docx" target="_blank"><button>Open Template 2 PDF</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-imgs/template3.png" alt="Template 3">
+                    <a href="template-docx/template3.docx" target="_blank"><button>Open Template 3 PDF</button></a>
+                </div>
+    
+                <div class="template">
+                    <img src="template-imgs/template4.png" alt="Template 4">
+                    <a href="template-docx/template4.docx" target="_blank"><button>Open Template 4 PDF</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-imgs/template5.png" alt="Template 5">
+                    <a href="template-docx/template5.docx" target="_blank"><button>Open Template 5 PDF</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-imgs/template6.png" alt="Template 6">
+                    <a href="template-docx/template6.docx" target="_blank"><button>Open Template 6 PDF</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-imgs/template7.png" alt="Template 7">
+                    <a href="template-docx/template7.docx" target="_blank"><button>Open Template 7 PDF</button></a>
+                </div>
+                <div class="template">
+                    <img src="template-imgs/template8.png" alt="Template 8">
+                    <a href="template-docx/template8.docx" target="_blank"><button>Open Template 8 PDF</button></a>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Contact Section -->
+        <section id="contact-section" class="contact-section">
+            <h2>Contact Us</h2>
+            <form action="https://api.web3forms.com/submit" method="post">
+                <input type="hidden" name="access_key" value="e0fcbdd9-3ffd-4ace-915f-7fa177a52967">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name..." class="contact-details" required>
+        
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email..." class="contact-details" required>
+        
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message..." class="contact-details" required></textarea>
+        
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Portfolio Generator. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

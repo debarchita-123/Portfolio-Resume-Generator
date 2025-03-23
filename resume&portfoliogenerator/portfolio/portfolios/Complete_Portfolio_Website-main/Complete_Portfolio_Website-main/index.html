@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Form to collect data -->
+    <section class="form-section" id="form-section">
+        <form id="portfolioForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="home">Home (Intro):</label>
+            <textarea id="home" name="home" required></textarea><br><br>
+
+            <label for="about">About Me:</label>
+            <textarea id="about" name="about" required></textarea><br><br>
+
+            <label for="skills">Skills:</label>
+            <textarea id="skills" name="skills" required></textarea><br><br>
+
+            <label for="education">Education:</label>
+            <textarea id="education" name="education" required></textarea><br><br>
+
+            <label for="projects">Projects:</label>
+            <div id="projects-list">
+                <input type="text" class="project-input" name="projects[]" placeholder="Project description" required><br>
+            </div>
+            <button type="button" id="add-project">Add Another Project</button><br><br>
+
+            <label for="github">GitHub Link:</label>
+            <input type="url" id="github" name="github" required><br><br>
+
+            <label for="facebook">Facebook Link:</label>
+            <input type="url" id="facebook" name="facebook" required><br><br>
+
+            <label for="instagram">Instagram Link:</label>
+            <input type="url" id="instagram" name="instagram" required><br><br>
+
+            <label for="twitter">Twitter Link:</label>
+            <input type="url" id="twitter" name="twitter" required><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Main content of the page, initially hidden -->
+    <div id="main-content" style="display:none;">
+        <header>
+            <a href="" class="brand" data-aos="zoom-in" data-aos-duration="1000" id="user-name">Your Name</a>
+            <div class="menu-btn"></div>
+            <div class="navigation">
+                <a href="#main" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">Home</a>
+                <a href="#about" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">About</a>
+                <a href="#skills" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">Skills</a>
+                <a href="#education" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">Education</a>
+                <a href="#projects" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">Projects</a>
+                <a href="#" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">Contact</a>
+            </div>
+        </header>
+
+        <section class="main" id="main">
+            <div class="content">
+                <h2 data-aos="fade-right" data-aos-duration="1000" data-aos-delay="800">Hello, I'm <br><span id="display-name">Your Name</span></h2>
+                <div class="animated-text" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="900">
+                    <h3 id="home-text">Welcome to my portfolio</h3>
+                </div>
+                <div class="media-icons">
+                    <a href="#" id="github-link"><i class="fab fa-github"></i></a>
+                    <a href="#" id="facebook-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" id="instagram-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" id="twitter-link"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="title reveal">
+                <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">About me</h2>
+            </div>
+            <div class="content">
+                <p id="about-text">I am a web developer.</p>
+            </div>
+        </section>
+
+        <section class="skills" id="skills">
+            <div class="title">
+                <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">My Skills</h2>
+            </div>
+            <div class="content">
+                <div class="column col-left">
+                    <h2 class="content-title" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">My Skills</h2>
+                    <p id="skills-text">HTML, CSS, JavaScript...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" id="education">
+            <div class="title">
+                <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Education</h2>
+            </div>
+            <div class="content">
+                <p id="education-text">I studied at XYZ University...</p>
+            </div>
+        </section>
+
+        <section class="work" id="projects">
+            <div class="title">
+                <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">Projects</h2>
+            </div>
+            <div class="content">
+                <ul id="projects-text" class="project-color">
+                    <!-- Project descriptions will be added here -->
+                </ul>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <span class="footer-title" id="footer-name">Your Name</span>
+            <p>Copyright @2021 Your Portfolio. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({offset:0});
+
+      const form = document.getElementById("portfolioForm");
+      const mainContent = document.getElementById("main-content");
+      const formSection = document.getElementById("form-section");
+      const addProjectButton = document.getElementById("add-project");
+      const projectsList = document.getElementById("projects-list");
+      const projectsText = document.getElementById("projects-text");
+
+      addProjectButton.addEventListener("click", function() {
+        const newInput = document.createElement("input");
+        newInput.type = "text";
+        newInput.className = "project-input";
+        newInput.name = "projects[]";
+        newInput.placeholder = "Project description";
+        newInput.required = true;
+        projectsList.appendChild(newInput);
+        projectsList.appendChild(document.createElement("br"));
+      });
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        // Getting form values
+        const name = document.getElementById("name").value;
+        const home = document.getElementById("home").value;
+        const about = document.getElementById("about").value;
+        const skills = document.getElementById("skills").value;
+        const education = document.getElementById("education").value;
+        const projectInputs = document.querySelectorAll(".project-input");
+        const github = document.getElementById("github").value;
+        const facebook = document.getElementById("facebook").value;
+        const instagram = document.getElementById("instagram").value;
+        const twitter = document.getElementById("twitter").value;
+
+        // Replace content with form values
+        document.getElementById("user-name").textContent = name;
+        document.getElementById("display-name").textContent = name;
+        document.getElementById("home-text").textContent = home;
+        document.getElementById("about-text").textContent = about;
+        document.getElementById("skills-text").textContent = skills;
+        document.getElementById("education-text").textContent = education;
+        document.getElementById("footer-name").textContent = name;
+
+
+        // Set social media links
+        document.getElementById("github-link").href = github;
+        document.getElementById("facebook-link").href = facebook;
+        document.getElementById("instagram-link").href = instagram;
+        document.getElementById("twitter-link").href = twitter;
+
+        // Clear and add project descriptions
+        projectsText.innerHTML = "";
+        projectInputs.forEach(input => {
+          const li = document.createElement("li");
+          li.textContent = input.value;
+          projectsText.appendChild(li);
+        });
+
+        // Hide form and show main content
+        formSection.style.display = "none";
+        mainContent.style.display = "block";
+      });
+    </script>
+</body>
+</html>

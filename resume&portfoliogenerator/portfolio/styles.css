@@ -1,0 +1,309 @@
+/* Other styles remain as you have */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    /* background-color: rgb(3, 3, 78); */
+    background: linear-gradient(90deg, rgba(2,0,.6,1) 0%, rgba(9,9,121,1) 35%, rgb(7, 107, 127) 100%);
+    color: white;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevents horizontal scrolling due to particles */
+}
+main {
+    position: relative; /* Ensures content stacks above the background */
+    z-index: 1; /* Makes sure the main content stays above particles.js */
+    padding: 70px 20px;
+    text-align: center;
+}
+
+header, footer {
+    position: relative; /* Ensures header and footer stay above particles.js */
+    z-index: 1;
+}
+.pic{
+    border-radius: 100%;
+    
+}
+.logo{
+    border-radius: 100%;
+}
+.pic{
+    border: 3px solid cyan;
+    box-shadow: 0px 0px 15px cyan,0px 0px 15px cyan inset;
+}
+
+.basic{
+    padding-bottom: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: linear-gradient(90deg, rgba(2,0,.6,1) 0%, rgba(9,9,121,1) 35%, rgb(7, 107, 127) 100%);
+}
+
+.logo img {
+    width: 80px;
+    cursor: pointer;
+    animation: movedown 1s linear;
+    animation-delay: 0.35s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+
+@keyframes movedown{
+    0%{
+        transform: translateY(-100px);
+        visibility: visible;
+    }
+    100%{
+        transform: translateY(0);
+        visibility: visible;
+    }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    animation: movedown 1s linear;
+    animation-delay: 0.35s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.register button {
+    background-color: #0BD1F5;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.register button:hover {
+    background-color: #069BCC;
+}
+
+main {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    text-align: center;
+    padding: 70px 20px;
+    background: url('background-pattern.png') no-repeat center;
+    background-size: cover;
+}
+
+.content{
+    animation: zoomin 1s linear;
+    animation-delay: 0.35s;
+    visibility: hidden;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes zoomin{
+    0%{
+        transform: scale(0.5);
+        visibility: visible;
+    }
+    100%{
+        transform: scale(1);
+        visibility: visible;
+    }
+}
+
+.content h1 {
+    font-size: 48px;
+    color: #A8AFC6;
+    margin-bottom: 10px;
+}
+h1{
+    font-family: "Lobster", sans-serif;
+}
+h2{
+    font-family: "Lobster", sans-serif;
+}
+
+.content h2 {
+    font-size: 72px;
+    font-weight: bold;
+    background: linear-gradient(to right, #05C6FF, #56A1FB);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.content p {
+    margin-top: 30px;
+    font-size: 18px;
+    color: #A8AFC6;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(2,0,.6,1) 0%, rgba(9,9,121,1) 35%, rgb(7, 107, 127) 100%);
+}
+
+.hidden {
+    display: none;
+}
+
+.template-section, .contact-section {
+    margin-top: 50px;
+    padding: 50px;
+    text-align: center;
+}
+
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+    gap: 20px; /* Adjust gap as needed */
+    justify-content: center;
+    gap: 30px;
+}
+
+.template {
+    position: relative;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    color: black;
+}
+
+.template img {
+    width: 100%;
+    height: auto;
+}
+
+.template button, .register button, form button {
+    background-color: #0BD1F5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+
+
+.about-section {
+    margin-left: 16%;
+    padding: 20px;
+    justify-content: left;
+    width: 70%;
+    align-items: baseline;
+}
+.hidden {
+    display: none;
+}
+.about-section h2 {
+    font-size: 40px;
+}
+.about-section p {
+
+}
+
+
+.btn1 {
+    height: 3rem;
+    width: 9rem;
+    font-family: "Lobster", sans-serif;
+    background-color: #230445;
+    border-radius: 1rem;
+    border: #230445;
+    font-weight: 500;
+    color: white;
+    cursor: pointer; /* Change cursor to pointer */
+    font-size: 40px
+}
+
+.btn1:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.btn1:hover {
+    background-color: rgb(218, 60, 97);
+    color: #230445;
+}
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures it stays behind everything else */
+    pointer-events: none; /* Prevents interactions with the particles */
+}
+.contact-section {
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 50% opacity */
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners for the box */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for better visibility */
+    max-width: 600px; /* Limit the width for better layout */
+    margin: 50px auto; /* Center the box horizontally */
+    text-align: left; /* Align the text inside the box to the left */
+    z-index: 1; /* Ensure it appears above the particles background */
+    position: relative; /* For proper stacking */
+}
+
+.contact-section h2 {
+    text-align: center; /* Center the heading text */
+    color: #333; /* Dark text for contrast on the white background */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+.contact-details {
+    width: 100%; /* Make inputs full-width */
+    margin-bottom: 15px; /* Add spacing between inputs */
+    padding: 10px;
+    border: 1px solid #ccc; /* Light border for input fields */
+    border-radius: 5px; /* Rounded corners for inputs */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+.contact-section button {
+    background-color: #007BFF; /* Button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%; /* Make the button full-width */
+    font-size: 16px;
+}
+
+.contact-section button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+.portfolios-section {
+    padding: 50px;
+}
