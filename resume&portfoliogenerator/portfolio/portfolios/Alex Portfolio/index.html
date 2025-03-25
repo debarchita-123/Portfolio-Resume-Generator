@@ -10,36 +10,163 @@
 </head>
 
 <body>
-    <header>
-        <a href="#" class="logo name">Alex</a>
-
-        <nav>
-            <a href="#" id="nav-home" class="active">Home</a>
-            <a href="#" id="nav-skills">Skills</a>
-            <a href="#" id="nav-education">Education</a>
-            <a href="#" id="nav-experience">Experience</a>
-            <a href="#" id="nav-contact">Contact</a>
-        </nav>
-    </header>
-    <section id="main-content" class="home">
-        <div class="home-img">
-            <img src="main.jpg" alt="">
-        </div>
-        <div class="home-content">
-            <h1>Hi, It's <span class="name">Alex</span></h1>
-            <h3 class="typing-text skills">I'm a <span></span></h3>
-            <p class="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    <div id="form-container">
+        <form class="form scrollable-container" id="userForm">
+            <h2>Create Your Portfolio</h2>
+    
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
             </div>
-            <a href="#" class="btn">Hire me</a>
-        </div>
-    </section>
+    
+            <div class="form-group">
+                <label for="skills">Skills (comma-separated):</label>
+                <input type="text" id="skills" placeholder="e.g., JavaScript, React, Node.js" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="education">Education:</label>
+                <input type="text" id="education" placeholder="e.g., Bachelor's in Computer Science" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="experience">Experience (Project and Description):</label>
+                <textarea id="experience" rows="3" placeholder="e.g., Built an e-commerce website..." required></textarea>
+            </div>
+    
+            <div class="form-group">
+                <label for="summary">Summary:</label>
+                <textarea id="summary" rows="3" placeholder="Tell us about yourself..." required></textarea>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Contact Email:</label>
+                <input type="email" id="email" placeholder="e.g., yourname@example.com" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="linkedin">LinkedIn:</label>
+                <input type="url" id="linkedin" placeholder="e.g., https://linkedin.com/in/yourprofile">
+            </div>
+    
+            <div class="form-group">
+                <label for="github">GitHub:</label>
+                <input type="url" id="github" placeholder="e.g., https://github.com/yourusername">
+            </div>
+    
+            <div class="form-group">
+                <label for="twitter">Twitter:</label>
+                <input type="url" id="twitter" placeholder="e.g., https://twitter.com/yourhandle">
+            </div>
+    
+            <div class="form-group">
+                <label for="instagram">Instagram:</label>
+                <input type="url" id="instagram" placeholder="e.g., https://instagram.com/yourhandle">
+            </div>
+    
+            <button type="button" id="submitButton">Create Portfolio</button>
+        </form>
+    </div>
+    
 
-    <script src="script.js"></script>
+    <div id="portfolio">
+        <header>
+            <a href="#" class="logo name" id="portfolioHeader">Alex</a>
+
+            <nav>
+                <a href="#" id="nav-home" class="active">Home
+                    <div class="expandable">
+                        <p>Welcome to the homepage.</p>
+                        <p>Explore the latest updates here.</p>
+                    </div>
+                </a>
+                <a href="#" id="nav-skills">Skills
+                    <div class="expandable" id="skillsContent">
+                        <!-- Skills will be populated dynamically -->
+                    </div>
+                </a>
+                <a href="#" id="nav-education">Education
+                    <div class="expandable" id="educationContent">
+                        <!-- Education will be populated dynamically -->
+                    </div>
+                </a>
+                <a href="#" id="nav-experience">Experience
+                    <div class="expandable" id="experienceContent">
+                        <!-- Experience will be populated dynamically -->
+                    </div>
+                </a>
+                <a href="#" id="nav-contact">Contact
+                    <div class="expandable" id="contactContent">
+                        <!-- Contact will be populated dynamically -->
+                    </div>
+                </a>
+            </nav>
+        </header>
+        <section id="main-content" class="home">
+            <div class="home-img">
+                <img src="main.jpg" alt="">
+            </div>
+            <div class="home-content">
+                <h1>Hi, It's <span class="name" id="portfolioName">Alex</span></h1>
+                <h3 class="typing-text skills">I'm skilled in <span id="portfolioSkills"></span></h3>
+                <p class="summary" id="portfolioSummary">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <div class="social-icons" id="socialLinks">
+                    <!-- Social links will be populated dynamically -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        const formContainer = document.getElementById("form-container");
+        const portfolio = document.getElementById("portfolio");
+        const submitButton = document.getElementById("submitButton");
+
+        submitButton.addEventListener("click", () => {
+            // Fetch user input
+            const name = document.getElementById("name").value;
+            const skills = document.getElementById("skills").value;
+            const education = document.getElementById("education").value;
+            const experience = document.getElementById("experience").value;
+            const summary = document.getElementById("summary").value;
+            const email = document.getElementById("email").value;
+            const linkedin = document.getElementById("linkedin").value;
+            const github = document.getElementById("github").value;
+            const twitter = document.getElementById("twitter").value;
+            const instagram = document.getElementById("instagram").value;
+
+            // Populate portfolio
+            document.getElementById("portfolioName").textContent = name;
+            document.getElementById("portfolioHeader").textContent = name;
+
+            const skillsList = skills.split(',').map(skill => <li>${skill.trim()}</li>).join('');
+            document.getElementById("skillsContent").innerHTML = <ul>${skillsList}</ul>;
+
+            const experienceList = experience.split(',').map(exp => <li>${exp.trim()}</li>).join('');
+            document.getElementById("experienceContent").innerHTML = <ul>${experienceList}</ul>;
+
+            document.getElementById("portfolioSummary").textContent = summary;
+            document.getElementById("contactContent").innerHTML = <p>Email: ${email}</p>;
+
+            const socialIcons = [
+                { url: linkedin, icon: "fa-linkedin" },
+                { url: github, icon: "fa-github" },
+                { url: twitter, icon: "fa-x-twitter" },
+                { url: instagram, icon: "fa-instagram" }
+            ];
+
+            const socialLinks = socialIcons
+                .filter(link => link.url)
+                .map(link => <a href="${link.url}" target="_blank"><i class="fa-brands ${link.icon}"></i></a>)
+                .join(" ");
+
+            document.getElementById("socialLinks").innerHTML = socialLinks;
+
+            // Hide form and show portfolio
+            formContainer.style.display = "none";
+            portfolio.style.display = "block";
+        });
+    </script>
 </body>
 
 </html>
